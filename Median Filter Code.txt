@@ -1,0 +1,12 @@
+fs=250;
+subplot(912),plot(x),title 'noise data';
+window=15;
+y=medfilt1(x,window);
+subplot(913),plot(y),title 'median filter';
+shg
+
+
+b=y';
+vec=b;
+c=vec2mat(vec,250);
+plot(y)

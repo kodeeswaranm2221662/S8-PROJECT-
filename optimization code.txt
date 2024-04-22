@@ -1,0 +1,21 @@
+N=300;
+iter=10;
+dim=1;
+lb=0;
+ub=1;
+fobj=1;	
+x = lb + rand(dim, N)*(ub-lb);
+	
+alpha = 1;
+	
+for iter = 10
+    dx = rand(dim, N)*(ub-lb);
+    xnew = x + dx;
+    alpha = alpha * (1 - fobj(xnew) / fobj(x));
+    x(fobj(x) > fobj(xnew)) = xnew(fobj(x) > fobj(xnew));
+
+end
+[xopt, fopt] = min(fobj(x));
+
+	
+
